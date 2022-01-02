@@ -8,17 +8,20 @@
 
 //import storage from './storage/index'
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     
   },
   data() {
     return {
-     
-    }
+      res:{},
+    };
   },
   mounted() {
-    
+    //本地集成mockjs实现数据mock
+    this.axios.get('/user/login').then((res) => {
+        this.res = res;
+    });
   }
 }
 </script>
