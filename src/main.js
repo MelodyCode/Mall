@@ -3,14 +3,19 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import App from './App.vue'
-import env from './env'
-Vue.prototype.$axios = axios;
+//import env from './env
+Vue.prototype.axios = axios;
 Vue.config.productionTip = false//生产环境的提示
 //根据前端的跨域方式做调整 /api/a =>(转发时) /a
-
-axios.defaults.baseURL = '/api'
+const mock = true;
+//mock开关s
+if(mock) {
+  //import是预编译时加载
+  require('./mock/api');
+}
+axios.defaults.baseURL = '/api';
 axios.defaults.timeout = 8000;
-axios.defaults.baseURL = env.baseURL;
+//axios.defaults.baseURL = env.baseURL;
 //接口错误拦截
 axios.interceptors.response.use(function(response) {
   let res = response.data;
