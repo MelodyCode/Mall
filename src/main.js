@@ -3,8 +3,12 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import App from './App.vue'
+import VueLazyLoad from 'vue-lazyload'
 //import env from './env'
 Vue.prototype.axios = axios;
+Vue.use(VueLazyLoad,{
+  loading:'/imgs/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false//生产环境的提示
 //根据前端的跨域方式做调整 /api/a =>(转发时) /a
 
