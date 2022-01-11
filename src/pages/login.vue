@@ -62,10 +62,16 @@ export default {
                 password
             }).then((res)=>{
                 //已经有借口拦截，所以返回的是res.data
+                // From some method in one of your Vue components
+
+// This will set a cookie with the name 'test' and the value 'Hello world!' that expires in one day
+ 
+// To get the value of a cookie use
+
                 this.$cookie.set('userId',res.id,{expires:'1M'});
                //dispatch派发action
                 //this.$store.dispatch('saveUserName',res.username);
-               
+                //console.log(this.$cookies.get('userId'))
                 this.saveUserName(res.username);
                 this.$router.push('/index');
             })
