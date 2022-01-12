@@ -54,7 +54,7 @@ export default {
         line-height: 70px;//让文字垂直方向居中
         border-top: 1px solid $colorH;
         background-color: $colorG;
-        
+        z-index: 11;
         &.is-fixed{
             //在父容器中添加fixed，父容器的宽度和container一样？？？？？？
             position:fixed;

@@ -160,11 +160,11 @@ export default {
                     img:'/imgs/slider/slide-3.jpg'
                 },
                 {
-                    id:'',
+                    id:'30',
                     img:'/imgs/slider/slide-4.jpg'
                 },
                 {
-                    id:'',
+                    id:'30',
                     img:'/imgs/slider/slide-1.jpg'
                 },
             ],
@@ -224,18 +224,21 @@ export default {
                 this.phoneList = [res.list.slice(6,10),res.list.slice(10,14)]
             })
         },
-        addCart(id) {
-            this.showModal=true;
-            console.log(id)
-            return;
-         /*    this.axios.post('/carts',{
+        //item.id
+        
+        addCart(id) {            
+            this.axios.post('/carts',{
                 productId:id,
                 selected:true
-            }).then(() => {
-
+            }).then((res) => {
+                this.showModal=true;
+                this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
             }).catch(()=> {
                 this.showModal=true
-            }) */
+            })
+        },
+        goToCart() {
+            this.$router.push('/cart');
         }
         
     }
