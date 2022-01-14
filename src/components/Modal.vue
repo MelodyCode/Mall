@@ -11,6 +11,7 @@
                 <a href="javascript:;" class="icon-close" v-on:click="$emit('cancel')"></a>
             </div>
             <div class="modal-body">
+                <!--插入modal框的内容-->
                 <slot name="body"></slot>
             </div>
             <div class="modal-footer">

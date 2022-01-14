@@ -104,7 +104,7 @@ export default {
         addCart(){
             this.axios.post('/carts',{
                 productId:this.id,
-                selected: true
+                selected: true //商品选中状态
             }).then((res={cartProductVoList:0})=>{
                 //给res赋予默认值cartProductVoList:0
                 //将商品数量投入到Vuex中
