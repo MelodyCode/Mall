@@ -76,13 +76,15 @@ import OrderHeader from './../components/OrderHeader'
 import NavFooter from './../components/NavFooter'
 import ServiceBar from './../components/ServiceBar'
 import Modal from './../components/Modal'
+
 export default {
     name: 'cart',
     components: {
        OrderHeader,
        NavFooter,
        ServiceBar,
-       Modal
+       Modal,
+       
     },
     data() {
         return {
@@ -130,13 +132,13 @@ export default {
             let selected = item.productSelected;
             if(type == '-') {
                 if(quantity == 1) {
-                    alert('商品至少保留一件');
+                    this.$message.warning('商品至少保留一件');
                     return;
                 }
                  --quantity;
             }  else if (type == '+') {
                 if(quantity > item.productStock) {
-                    alert('商品不能超过库存数量');
+                    this.$message.warning('商品不能超过库存数量');
                     return;
                 }
                 ++quantity;
@@ -156,13 +158,14 @@ export default {
             this.axios.delete(`/carts/${item.productId}`).then((res) =>{
                 this.renderData(res);
             })
+            this.showModal= false
         },
         //结算
         order() {
             //如果列表里面都是未选中则返回true，isCheck是布尔值
             let isCheck = this.list.every(item => !item.productSelected);
             if (isCheck) {
-                alert('请选择一件商品！')
+                this.$message.warning('请选择一件商品！')
             } else {
                 this.$router.push('/order/confirm');
             }

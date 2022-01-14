@@ -5,14 +5,19 @@ import axios from 'axios'
 import App from './App.vue'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
+import { Message } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 //import env from './env'
 Vue.prototype.axios = axios;
+//全局注册message插件
+Vue.prototype.$message = Message;
 //图片懒加载
 Vue.use(VueLazyLoad,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
-Vue.use(VueCookie)
+Vue.use(VueCookie);
+
 Vue.config.productionTip = false//生产环境的提示
 //根据前端的跨域方式做调整 /api/a =>(转发时) /a
 
@@ -34,6 +39,7 @@ axios.interceptors.response.use(function(response) {
     return Promise.reject(res);
   } else {
     alert(res.msg);
+    Message.error(res.msg)
     return Promise.reject(res);
   }
 });
