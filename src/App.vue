@@ -20,6 +20,10 @@ export default {
   mounted() {
     this.getUser();
     this.getCartCount();
+    /*if(this.$cokkie.get('userId')) {
+       this.getUser();
+        this.getCartCount();
+    }*/
   },
   methods:{
     getUser() {
