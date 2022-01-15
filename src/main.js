@@ -10,7 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 //import env from './env'
 Vue.prototype.axios = axios;
-//全局注册message插件
+//全局注册message插件,挂载到vue实例上面
 Vue.prototype.$message = Message;
 //图片懒加载
 Vue.use(VueLazyLoad,{

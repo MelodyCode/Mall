@@ -68,12 +68,17 @@ export default {
  
 // To get the value of a cookie use
 
-                this.$cookie.set('userId',res.id,{expires:'1M'});
+                this.$cookie.set('userId',res.id,{expires:'Session'});
                //dispatch派发action
                 //this.$store.dispatch('saveUserName',res.username);
                 //console.log(this.$cookies.get('userId'))
                 this.saveUserName(res.username);
-                this.$router.push('/index');
+                this.$router.push({
+                    name:'index',
+                    params:{
+                        from:'login'
+                    }
+                });
             })
         },
         ...mapActions(['saveUserName']),
