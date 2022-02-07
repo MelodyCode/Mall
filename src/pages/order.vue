@@ -1,6 +1,7 @@
 <!--订单父组件-->
 <template>
     <div>
+       
         <router-view></router-view>
         <service-bar></service-bar>
         <nav-footer></nav-footer>
@@ -39,7 +40,11 @@ export default {
             //订单支付界面
             this.title = '订单支付'
             this.tip = '请谨防钓鱼链接或诈骗电话，了解更多>'
-        } 
+        } else {
+            this.title = '订单支付'
+            this.tip = '请谨防钓鱼链接或诈骗电话，了解更多>'
+        }
+
     }
 }
 </script>
