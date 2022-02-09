@@ -1,14 +1,13 @@
 <!--订单父组件-->
 <template>
     <div>
-       
         <router-view></router-view>
         <service-bar></service-bar>
         <nav-footer></nav-footer>
     </div>
 </template>
 <script>
-
+//import OrderHeader from './../components/OrderHeader'
 import ServiceBar from './../components/ServiceBar'
 import NavFooter from './../components/NavFooter'
 
@@ -21,30 +20,12 @@ export default {
         }
     },
     components: {
-      
+       //OrderHeader,
        NavFooter,
        ServiceBar
     },
-    mounted() {
-        let path = this.$route.path;
-        //order界面的集中封装
-        if (path == '/order/confirm') {
-             //订单确认
-            this.title = '订单确认'
-            this.tip = '请填写收货地址'
-        } else if(path == '/order/list'){
-            //订单列表
-            this.title = '订单列表'
-            this.tip = '请谨防钓鱼链接或诈骗电话，了解更多>'
-        } else if(path == '/order/pay') {
-            //订单支付界面
-            this.title = '订单支付'
-            this.tip = '请谨防钓鱼链接或诈骗电话，了解更多>'
-        } else {
-            this.title = '订单支付'
-            this.tip = '请谨防钓鱼链接或诈骗电话，了解更多>'
-        }
-
-    }
+    //第一次从购物车到订单列表等，经过mounted；订单确认-》订单列表不会经过order的mounted
+    
+    
 }
 </script>
